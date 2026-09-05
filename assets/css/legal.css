@@ -1,0 +1,19 @@
+/* Pages légales — mise en page sobre, réutilise les variables de styles.css */
+.legal { padding-top: calc(var(--header-h) + clamp(3rem, 7vw, 5rem)); padding-bottom: var(--section-y); }
+.legal__title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.legal__updated { color: var(--muted); font-size: .88rem; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+.legal h2 {
+  font-size: 1.25rem; margin-top: 2.75rem; margin-bottom: .9rem;
+  padding-top: 1.75rem; border-top: 1px solid var(--line);
+}
+.legal h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+.legal p, .legal li { color: var(--muted); font-size: .97rem; }
+.legal p + p { margin-top: .9rem; }
+.legal ul { display: grid; gap: .5rem; margin-top: .9rem; padding-left: 1.2rem; list-style: disc; }
+.legal ul li { padding-left: .2rem; }
+.legal a { color: var(--navy); }
+.todo {
+  display: block; background: var(--mist); border-left: 2px solid var(--navy);
+  padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: .9rem; color: var(--navy);
+}
+.legal__back { display: inline-block; margin-top: 3rem; }

@@ -119,7 +119,7 @@
   function hideLightbox() {
     if (!lightbox || lightbox.hidden) { return; }
     lightbox.hidden = true;
-    lightboxImg.src = '';
+    lightboxImg.removeAttribute('src');
     document.body.style.overflow = '';
     if (lastFocused) { lastFocused.focus(); }
   }
@@ -159,12 +159,19 @@
   var form = $('#contact-form');
   var status = $('#form-status');
 
+  // message affiché quand un champ obligatoire est vide
   var MESSAGES = {
     nom: 'Merci d’indiquer votre nom.',
-    email: 'Merci d’indiquer une adresse e-mail valide.',
+    tel: 'Merci d’indiquer un numéro de téléphone.',
+    email: 'Merci d’indiquer votre adresse e-mail.',
     ville: 'Merci d’indiquer votre ville ou arrondissement.',
     message: 'Dites-m’en un peu plus sur votre projet.',
-    consent: 'Merci de cocher cette case pour être recontacté.',
+    consent: 'Merci de cocher cette case pour être recontacté.'
+  };
+
+  // message affiché quand le champ est rempli mais mal formé
+  var FORMATS = {
+    email: 'Cette adresse e-mail semble incorrecte.',
     tel: 'Ce numéro de téléphone semble incomplet.'
   };
 
@@ -187,9 +194,9 @@
     } else if (input.required && !value) {
       msg = MESSAGES[input.name] || 'Ce champ est obligatoire.';
     } else if (input.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-      msg = MESSAGES.email;
+      msg = FORMATS.email;
     } else if (input.name === 'tel' && value && value.replace(/[^0-9+]/g, '').length < 9) {
-      msg = MESSAGES.tel;
+      msg = FORMATS.tel;
     }
 
     setError(input, msg);
@@ -228,17 +235,17 @@
         // Pas de service configuré : on bascule sur le client mail du visiteur.
         var corps = [
           'Nom : ' + data.nom,
+          'Prénom : ' + (data.prenom || '—'),
+          'Téléphone : ' + data.tel,
           'E-mail : ' + data.email,
-          'Téléphone : ' + (data.tel || '—'),
           'Ville : ' + data.ville,
           'Prestation : ' + data.prestation,
-          'Nombre de personnes : ' + data.personnes,
           '',
           data.message
         ].join('\n');
 
         window.location.href = 'mailto:' + CONFIG.EMAIL
-          + '?subject=' + encodeURIComponent('Demande de contact — ' + data.nom)
+          + '?subject=' + encodeURIComponent('Demande de contact — ' + [data.prenom, data.nom].filter(Boolean).join(' '))
           + '&body=' + encodeURIComponent(corps);
 
         status.classList.add('is-success');

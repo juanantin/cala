@@ -8,10 +8,13 @@ Il s'ouvre en double-cliquant sur `index.html` et s'héberge partout
 (GitHub Pages, Netlify, Vercel, OVH, o2switch…).
 
 ```
-index.html               la page complète
-assets/css/styles.css    styles
-assets/js/main.js        interactions + configuration
-assets/img/              logo, favicon, image de repli
+index.html                          la page complète
+mentions-legales.html               page légale (à compléter)
+politique-de-confidentialite.html   page légale (à compléter)
+assets/css/styles.css               styles
+assets/css/legal.css                styles des pages légales
+assets/js/main.js                   interactions + configuration
+assets/img/                         logo, favicon, image de repli
 ```
 
 ## Ce que contient la page
@@ -19,22 +22,29 @@ assets/img/              logo, favicon, image de repli
 | Section | Ancre | Contenu |
 |---|---|---|
 | En-tête | `#hero` | Titre, slogan, CTA « Contactez le chef », chiffres clés |
-| Avantages | `#avantages` | Les 4 bénéfices du batch cooking |
+| Avantages | `#avantages` | Les 6 bénéfices du batch cooking |
+| À propos de moi | `#a-propos` | Photo + qui je suis / mon expérience / pourquoi ce service |
 | Déroulement | `#deroulement` | Les 4 étapes d'une prestation |
-| Services | `#services` | Cuisine à domicile, courses, cours de cuisine |
-| Crédit d'impôt | `#credit-impot` | Les 50 %, avec exemple de calcul |
+| Mes services | `#services` | Batch cooking à domicile, gestion des courses, cours de batch cooking |
+| Crédit d'impôt | `#credit-impot` | Éligibilité aux 50 %, avec exemple de calcul |
 | Galerie | `#galerie` | 6 photos, agrandissables au clic |
-| FAQ | `#faq` | 8 questions fréquentes |
-| Contact | `#contact` | Formulaire + coordonnées |
+| Zone d'intervention | `#zone` | Communes desservies + carte Google Maps |
+| FAQ | `#faq` | 9 questions fréquentes + bouton WhatsApp |
+| Contact | `#contact` | Formulaire, coordonnées, réseaux sociaux |
 
 ## À personnaliser avant la mise en ligne
 
 ### 1. Les coordonnées (obligatoire)
 
-Ce sont des valeurs d'exemple, à remplacer partout dans `index.html` :
+Ce sont des valeurs d'exemple, à remplacer partout dans `index.html` (et dans les
+deux pages légales) :
 
 - `06 00 00 00 00` — téléphone (aussi dans `href="tel:+33600000000"`)
 - `contact@cala-chef.fr` — e-mail (aussi dans le bloc `application/ld+json` en bas de page)
+- `https://wa.me/33600000000` — lien WhatsApp sous la FAQ : numéro au format
+  international, sans espaces ni « + »
+- `https://www.facebook.com/` et `https://www.instagram.com/` — liens des réseaux
+  sociaux, présents dans la section contact **et** dans le pied de page
 
 ### 2. La ville affichée dans le titre
 
@@ -66,8 +76,9 @@ Pour recevoir les demandes directement par e-mail, créez un formulaire sur
 ENDPOINT: 'https://formspree.io/f/xxxxxxx'
 ```
 
-Les champs envoyés : `nom`, `email`, `tel`, `ville`, `prestation`,
-`personnes`, `message`, `consent`.
+Les champs envoyés : `nom`, `prenom`, `tel`, `email`, `ville`, `prestation`,
+`message`, `consent`. Obligatoires : nom, téléphone, e-mail, ville, message et
+la case de consentement.
 
 ### 4. Les photos
 
@@ -84,19 +95,54 @@ remplacées par les vraies photos du chef : ce sont elles qui font vendre.
 Si une photo est indisponible, un visuel de repli discret s'affiche
 automatiquement (`assets/img/placeholder.svg`) : jamais d'image cassée.
 
-### 5. Les mentions légales
+### 5. Les tarifs annoncés
 
-Un site professionnel doit afficher des mentions légales (identité, statut,
-SIRET, hébergeur) et une politique de confidentialité, puisque le formulaire
-collecte des données personnelles. À ajouter avant la mise en ligne.
+⚠️ **Tous les prix de la page sont des exemples repris des maquettes fournies**, et
+non vos tarifs réels. À vérifier et à ajuster avant publication :
+
+- « semaine d'essai à partir de **70 €** » — bandeau du hero, carte de service,
+  liste déroulante du formulaire
+- « facture de **150 €**, vous ne réglez que **75 €** » — section crédit d'impôt
+- durées annoncées : **1 h 30 à 3 h** pour une séance, **3 h** pour un atelier
+- « liste de **30 recettes** »
+
+Les maquettes de référence annonçaient à la fois 60 € et 70 € pour la semaine
+d'essai : la valeur 70 € a été retenue partout, à confirmer.
+
+### 6. La zone d'intervention et la carte
+
+La liste des communes (`.zone__cities`) et la carte sont réglées sur Paris et la
+banlieue sud. La carte est un simple `iframe` Google Maps, sans clé d'API : pour
+changer de secteur, modifiez le paramètre `q=` de l'URL dans `index.html`
+(`https://www.google.com/maps?q=Paris,+France&z=11&output=embed`).
+
+Si la carte ne se charge pas (Google bloqué, visiteur hors ligne), un texte de
+repli s'affiche à sa place. À noter : cet `iframe` dépose des cookies Google —
+c'est signalé dans la politique de confidentialité, et il peut être remplacé par
+une image statique si vous préférez éviter le sujet.
+
+### 7. Le texte « À propos de moi »
+
+Les trois paragraphes (qui je suis / mon expérience / pourquoi ce service) sont
+repris des maquettes : ce sont des textes génériques. Réécrivez-les à la première
+personne avec votre vrai parcours — c'est la section qui crée la confiance.
+
+### 8. Les mentions légales
+
+Les pages `mentions-legales.html` et `politique-de-confidentialite.html` sont des
+**squelettes** : chaque mention « à compléter » doit être remplie (identité,
+statut, SIRET, hébergeur, numéro de déclaration services à la personne). La
+politique de confidentialité décrit le formulaire de contact et la carte Google ;
+adaptez-la à vos outils réels.
 
 ## Le crédit d'impôt : à faire vérifier
 
-La page annonce 50 % de crédit d'impôt au titre des services à la personne.
-Cet avantage suppose une activité **déclarée services à la personne**
-(déclaration ou agrément selon le cas). Les montants et plafonds cités
-(12 000 €, exemple à 200 € la séance) sont indicatifs : à confirmer avec votre
-comptable et à ajuster à vos tarifs réels avant publication.
+La page annonce 50 % de crédit d'impôt au titre des services à la personne, y
+compris la mention « tout le monde est éligible » et l'avance immédiate. Cet
+avantage suppose une activité **déclarée services à la personne** (déclaration
+ou agrément selon le cas), et les conditions réelles dépendent de la situation
+de chaque client. À faire valider par votre comptable avant publication, en même
+temps que les tarifs (voir plus haut).
 
 ## Design
 
@@ -127,4 +173,4 @@ Le site est publié en une minute, aucune configuration supplémentaire.
 
 - Une page par commune desservie (voir `VILLE`) pour le référencement local.
 - Des témoignages clients — à n'ajouter qu'une fois les avis réellement reçus.
-- Une grille tarifaire, si les prix sont fixes.
+- Une grille tarifaire complète, si les prix sont fixes.
