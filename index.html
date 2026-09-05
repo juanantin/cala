@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cala — Chef à domicile & batch cooking à Paris et en banlieue sud</title>
+<meta name="description" content="Chef à domicile spécialisé en batch cooking à Paris et en banlieue sud. Des repas sains, variés et prêts pour la semaine, avec 50 % de crédit d'impôt.">
+<meta name="theme-color" content="#17276E">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cala — Chef à domicile & batch cooking à Paris">
+<meta property="og:description" content="Des repas équilibrés et variés préparés chez vous, en une seule séance. Crédit d'impôt de 50 %.">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<!-- Marque Cala : tracé unique réutilisé partout via <use> -->
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="cala-mark" viewBox="0 0 240 320">
+    <g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 106 C 46 98, 26 58, 60 32 C 96 5, 170 12, 189 48 C 202 73, 191 99, 169 117 C 152 168, 130 240, 119 304"/>
+      <path d="M99 110 C 94 165, 102 245, 119 304"/>
+      <path d="M100 106 C 86 86, 96 60, 120 55 C 145 50, 162 68, 152 88 C 143 105, 114 116, 100 106 Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="site-header" id="header">
+  <div class="container site-header__inner">
+    <a class="brand" href="#hero" aria-label="Cala, accueil">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 240 320" focusable="false"><use href="#cala-mark"/></svg>
+      </span>
+      <span class="brand__word">Cala</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <ul class="nav__list">
+        <li><a href="#avantages">Avantages</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#credit-impot">Crédit d'impôt</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="btn btn--primary nav__cta" href="#contact">Contactez le chef</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="eyebrow reveal">Chef à domicile · Paris & banlieue sud</p>
+        <h1 class="hero__title reveal">
+          Simplifiez vos repas avec un chef à domicile à <span class="u-accent" data-city>Paris</span>
+        </h1>
+        <p class="hero__slogan reveal">
+          Savourez des repas équilibrés et variés, préparés en mode Batch&nbsp;Cooking,
+          tout en profitant d'un crédit d'impôt.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary btn--lg" href="#contact">Contactez le chef</a>
+          <a class="btn btn--ghost btn--lg" href="#avantages">Découvrir le batch cooking</a>
+        </div>
+        <ul class="hero__proof reveal">
+          <li><strong>50&nbsp;%</strong><span>de crédit d'impôt</span></li>
+          <li><strong>1 séance</strong><span>jusqu'à 5 jours de repas</span></li>
+          <li><strong>100&nbsp;%</strong><span>frais &amp; de saison</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__visual reveal">
+        <figure class="hero__photo">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80"
+               alt="Bol repas équilibré préparé par un chef à domicile" width="900" height="1100" fetchpriority="high">
+        </figure>
+        <div class="hero__card">
+          <span class="hero__card-mark" aria-hidden="true">
+            <svg viewBox="0 0 240 320" focusable="false"><use href="#cala-mark"/></svg>
+          </span>
+          <p><strong>4 heures chez vous.</strong> Votre frigo rempli de plats maison, prêts à réchauffer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVANTAGES ============ -->
+  <section class="section" id="avantages">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">Le batch cooking</p>
+        <h2 class="section__title">Une seule séance, toute la semaine de repas</h2>
+        <p class="section__lead">
+          Le batch cooking, c'est cuisiner en une fois ce que vous mangerez toute la semaine.
+          Le chef vient chez vous, cuisine dans votre cuisine, et repart en laissant vos plats
+          portionnés, étiquetés et rangés au frigo ou au congélateur.
+        </p>
+      </header>
+
+      <ul class="cards cards--4">
+        <li class="card reveal">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
+            </svg>
+          </span>
+          <h3>Vous gagnez vos soirées</h3>
+          <p>Fini les courses de dernière minute et l'heure de cuisine après le travail. Le dîner est prêt en 5 minutes.</p>
+        </li>
+        <li class="card reveal">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s-7-4.6-7-9.5A4 4 0 0 1 12 8a4 4 0 0 1 7 3.5C19 16.4 12 21 12 21z"/>
+            </svg>
+          </span>
+          <h3>Vous mangez équilibré</h3>
+          <p>Des menus construits avec des produits frais et de saison, adaptés à vos besoins et à ceux des enfants.</p>
+        </li>
+        <li class="card reveal">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20c9 1 15-4 16-15-8-1-14 2-15 8-.4 2.6.6 4.7 2 6.4M8 17c1.5-3.4 4-6 7-7.5"/>
+            </svg>
+          </span>
+          <h3>Vous jetez moins</h3>
+          <p>Des quantités justes, des restes réutilisés d'un plat à l'autre : moins de gaspillage, un budget courses maîtrisé.</p>
+        </li>
+        <li class="card reveal">
+          <span class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19V5m0 14h16M8 19v-6m4 6V8m4 11v-9"/>
+            </svg>
+          </span>
+          <h3>Vous variez enfin</h3>
+          <p>Des menus renouvelés chaque semaine, sans jamais retomber sur les mêmes trois recettes.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ÉTAPES ============ -->
+  <section class="section section--alt" id="deroulement">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">Comment ça se passe</p>
+        <h2 class="section__title">Quatre étapes, zéro charge mentale</h2>
+      </header>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__num">01</span>
+          <h3>On échange</h3>
+          <p>Goûts, allergies, régime, nombre de convives, budget : un appel de 15 minutes suffit à cadrer vos menus.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num">02</span>
+          <h3>Le chef fait les courses</h3>
+          <p>Marché et producteurs de votre quartier. Vous ne portez rien, vous ne choisissez rien.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num">03</span>
+          <h3>Il cuisine chez vous</h3>
+          <p>3 à 5 heures dans votre cuisine, qu'il rend impeccable. Vous êtes là… ou pas.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num">04</span>
+          <h3>Vous dégustez</h3>
+          <p>Plats portionnés, étiquetés, avec les consignes de réchauffe. Il n'y a plus qu'à passer à table.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">Les services</p>
+        <h2 class="section__title">Choisissez ce dont vous avez besoin</h2>
+        <p class="section__lead">Trois prestations, à la carte ou combinées, toutes éligibles au crédit d'impôt.</p>
+      </header>
+
+      <div class="services">
+        <article class="service reveal">
+          <div class="service__media">
+            <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80"
+                 alt="Plats maison portionnés en bocaux, prêts pour la semaine" loading="lazy" width="800" height="600">
+          </div>
+          <div class="service__body">
+            <h3>Cuisine à domicile — Batch cooking</h3>
+            <p>La prestation phare : une séance chez vous, et votre semaine de repas est faite.</p>
+            <ul class="ticks">
+              <li>Menus sur mesure, renouvelés chaque semaine</li>
+              <li>De 5 à 20 portions par séance</li>
+              <li>Plats portionnés, étiquetés et rangés</li>
+              <li>Cuisine laissée propre</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <div class="service__media">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80"
+                 alt="Étal de légumes frais de saison au marché" loading="lazy" width="800" height="600">
+          </div>
+          <div class="service__body">
+            <h3>Les courses</h3>
+            <p>Le chef sélectionne lui-même les produits, chez les commerçants du quartier.</p>
+            <ul class="ticks">
+              <li>Marché, primeur, poissonnier, boucher</li>
+              <li>Produits de saison, circuits courts</li>
+              <li>Budget convenu à l'avance, tickets fournis</li>
+              <li>Option 100 % bio</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <div class="service__media">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"
+                 alt="Cours de cuisine en famille dans une cuisine lumineuse" loading="lazy" width="800" height="600">
+          </div>
+          <div class="service__body">
+            <h3>Cours de cuisine</h3>
+            <p>Apprenez la méthode batch cooking pour la reproduire seul, en famille ou entre amis.</p>
+            <ul class="ticks">
+              <li>Organisation, planning et conservation</li>
+              <li>Techniques de base et gestes qui font gagner du temps</li>
+              <li>Ateliers parents-enfants</li>
+              <li>Fiches recettes remises à la fin</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CRÉDIT D'IMPÔT ============ -->
+  <section class="section section--navy" id="credit-impot">
+    <div class="container credit">
+      <div class="credit__content reveal">
+        <p class="eyebrow eyebrow--light">Services à la personne</p>
+        <h2 class="section__title">Un chef à domicile, pour moitié prix</h2>
+        <p class="section__lead">
+          La cuisine à domicile fait partie des services à la personne : <strong>50 % des sommes
+          versées vous sont remboursées</strong> sous forme de crédit d'impôt, que vous soyez
+          imposable ou non. Avec l'avance immédiate, la réduction est même appliquée directement.
+        </p>
+        <ul class="ticks ticks--light">
+          <li>Valable sur les heures de cuisine et de courses</li>
+          <li>Plafond de 12 000 € de dépenses par an, majoré selon votre foyer</li>
+          <li>Attestation fiscale fournie chaque année</li>
+          <li>Aucune démarche complexe : le chef s'occupe du dossier</li>
+        </ul>
+      </div>
+
+      <aside class="credit__calc reveal" aria-label="Exemple de calcul">
+        <h3>Ce que vous payez réellement</h3>
+        <dl class="calc">
+          <div><dt>Séance de 4 h</dt><dd>200 €</dd></div>
+          <div><dt>Crédit d'impôt (50 %)</dt><dd class="calc__minus">− 100 €</dd></div>
+          <div class="calc__total"><dt>Coût réel</dt><dd>100 €</dd></div>
+        </dl>
+        <p class="calc__note">Exemple indicatif hors coût des denrées. Le montant exact dépend de la durée de la séance et de votre situation.</p>
+        <a class="btn btn--light" href="#contact">Demander un devis</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ GALERIE ============ -->
+  <section class="section" id="galerie">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="eyebrow">En images</p>
+        <h2 class="section__title">Ce qui vous attend dans le frigo</h2>
+      </header>
+
+      <div class="gallery" id="gallery">
+        <figure class="gallery__item gallery__item--tall reveal">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Salade de saison colorée en bol" loading="lazy">
+        </figure>
+        <figure class="gallery__item reveal">
+          <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Pavé de saumon rôti et légumes verts" loading="lazy">
+        </figure>
+        <figure class="gallery__item reveal">
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Repas préparés à l'avance en boîtes hermétiques" loading="lazy">
+        </figure>
+        <figure class="gallery__item gallery__item--wide reveal">
+          <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1000&q=80" alt="Légumes frais en cours de préparation" loading="lazy">
+        </figure>
+        <figure class="gallery__item reveal">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80" alt="Soupe de légumes maison" loading="lazy">
+        </figure>
+        <figure class="gallery__item reveal">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=80" alt="Assiette équilibrée de légumes et céréales" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section section--alt" id="faq">
+    <div class="container container--narrow">
+      <header class="section__head reveal">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2 class="section__title">Vous vous demandez sûrement…</h2>
+      </header>
+
+      <div class="faq">
+        <details class="faq__item reveal">
+          <summary>Combien de temps se conservent les plats ?</summary>
+          <div class="faq__body"><p>De 3 à 5 jours au réfrigérateur selon les préparations, et jusqu'à 3 mois au congélateur. Chaque contenant est étiqueté avec la date et le mode de réchauffe.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Faut-il un équipement particulier dans ma cuisine ?</summary>
+          <div class="faq__body"><p>Non. Une plaque, un four et un plan de travail suffisent. Le chef apporte ses couteaux et son petit matériel, et peut fournir les contenants sur demande.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Dois-je être présent pendant la séance ?</summary>
+          <div class="faq__body"><p>Ce n'est pas nécessaire. Beaucoup de familles laissent les clés ou un accès. Vous retrouvez simplement votre cuisine propre et vos plats prêts.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Et les allergies, régimes ou goûts des enfants ?</summary>
+          <div class="faq__body"><p>Tout est pris en compte lors du premier échange : allergies, intolérances, régime végétarien, sans porc, sans lactose, aliments détestés… Les menus sont construits autour de vos contraintes, y compris celles des plus jeunes.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Qui achète et paie les courses ?</summary>
+          <div class="faq__body"><p>Le chef fait les courses pour vous, dans une enveloppe budgétaire fixée ensemble. Les denrées vous sont refacturées au prix coûtant, tickets à l'appui.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Quelles sont les zones d'intervention ?</summary>
+          <div class="faq__body"><p>Paris intra-muros et la banlieue sud : Montrouge, Malakoff, Châtillon, Bagneux, Clamart, Issy-les-Moulineaux, Antony, Sceaux, Fontenay-aux-Roses et alentours. Pour une autre commune, demandez : c'est souvent possible.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>À quelle fréquence faut-il réserver ?</summary>
+          <div class="faq__body"><p>La plupart des familles choisissent une séance hebdomadaire ou toutes les deux semaines. Une séance ponctuelle, pour tester ou pour une période chargée, est tout à fait possible.</p></div>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Comment fonctionne concrètement le crédit d'impôt ?</summary>
+          <div class="faq__body"><p>Les heures de cuisine et de courses à domicile ouvrent droit à 50 % de crédit d'impôt. Une attestation fiscale annuelle vous est remise à déclarer, ou l'avance immédiate déduit directement la moitié du montant lors du paiement.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container contact">
+      <div class="contact__intro reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="section__title">Parlons de vos repas</h2>
+        <p class="section__lead">
+          Dites-moi qui vous êtes et ce dont vous avez besoin : je vous réponds sous 24 h
+          avec une proposition de menus et un devis clair.
+        </p>
+
+        <ul class="contact__info">
+          <li>
+            <span class="contact__label">Téléphone</span>
+            <a href="tel:+33600000000">06 00 00 00 00</a>
+          </li>
+          <li>
+            <span class="contact__label">E-mail</span>
+            <a href="mailto:contact@cala-chef.fr">contact@cala-chef.fr</a>
+          </li>
+          <li>
+            <span class="contact__label">Zone d'intervention</span>
+            <span>Paris &amp; banlieue sud</span>
+          </li>
+          <li>
+            <span class="contact__label">Disponibilités</span>
+            <span>Du lundi au samedi, 8 h – 20 h</span>
+          </li>
+        </ul>
+      </div>
+
+      <form class="form reveal" id="contact-form" novalidate>
+        <div class="form__row">
+          <div class="field">
+            <label for="nom">Nom et prénom <span aria-hidden="true">*</span></label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required>
+            <p class="field__error" data-error-for="nom"></p>
+          </div>
+          <div class="field">
+            <label for="email">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="field__error" data-error-for="email"></p>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" autocomplete="tel">
+            <p class="field__error" data-error-for="tel"></p>
+          </div>
+          <div class="field">
+            <label for="ville">Ville / arrondissement <span aria-hidden="true">*</span></label>
+            <input type="text" id="ville" name="ville" placeholder="Paris 14e, Montrouge…" required>
+            <p class="field__error" data-error-for="ville"></p>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="prestation">Prestation souhaitée</label>
+            <select id="prestation" name="prestation">
+              <option>Batch cooking hebdomadaire</option>
+              <option>Séance ponctuelle</option>
+              <option>Cuisine + courses</option>
+              <option>Cours de cuisine</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="personnes">Nombre de personnes</label>
+            <select id="personnes" name="personnes">
+              <option>1 à 2</option>
+              <option>3 à 4</option>
+              <option>5 et plus</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Votre projet <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="5" required
+                    placeholder="Allergies, régimes, goûts des enfants, fréquence souhaitée…"></textarea>
+          <p class="field__error" data-error-for="message"></p>
+        </div>
+
+        <div class="field field--check">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">J'accepte que mes informations soient utilisées pour être recontacté. <span aria-hidden="true">*</span></label>
+          <p class="field__error" data-error-for="consent"></p>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--lg btn--block">Contactez le chef</button>
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="brand__mark brand__mark--light" aria-hidden="true">
+        <svg viewBox="0 0 240 320" focusable="false"><use href="#cala-mark"/></svg>
+      </span>
+      <div>
+        <p class="site-footer__word">Cala</p>
+        <p class="site-footer__tag">Chef à domicile · Batch cooking<br>Paris &amp; banlieue sud</p>
+      </div>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Navigation de pied de page">
+      <a href="#avantages">Avantages</a>
+      <a href="#services">Services</a>
+      <a href="#credit-impot">Crédit d'impôt</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <p class="site-footer__legal">
+      © <span id="year">2026</span> Cala — Tous droits réservés ·
+      <a href="mailto:contact@cala-chef.fr">contact@cala-chef.fr</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Lightbox galerie -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
+  <button class="lightbox__close" id="lightbox-close" aria-label="Fermer">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<a class="cta-float" href="#contact">Contactez le chef</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Cala — Chef à domicile",
+  "description": "Chef à domicile spécialisé en batch cooking à Paris et en banlieue sud.",
+  "areaServed": ["Paris", "Hauts-de-Seine", "Val-de-Marne"],
+  "email": "contact@cala-chef.fr",
+  "telephone": "+33600000000",
+  "priceRange": "€€",
+  "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" }
+}
+</script>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
