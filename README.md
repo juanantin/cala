@@ -112,9 +112,20 @@ d'essai : la valeur 70 € a été retenue partout, à confirmer.
 ### 6. La zone d'intervention et la carte
 
 La liste des communes (`.zone__cities`) et la carte sont réglées sur Paris et la
-banlieue sud. La carte est un simple `iframe` Google Maps, sans clé d'API : pour
-changer de secteur, modifiez le paramètre `q=` de l'URL dans `index.html`
-(`https://www.google.com/maps?q=Paris,+France&z=11&output=embed`).
+banlieue sud. La carte est un simple `iframe` Google Maps, sans clé d'API :
+
+```
+https://www.google.com/maps?q=48.8000,2.3400&z=11&hl=fr&output=embed
+```
+
+Le `q=` porte des **coordonnées** et non un nom de ville : centrer sur
+« Paris » placerait la capitale au milieu du cadre et couperait la banlieue sud.
+Le point 48.80 / 2.34 place Paris dans le haut du cadre, la banlieue sud occupant
+le reste. Pour déplacer le secteur, changez ces deux nombres ; `z=` règle le zoom
+(11 = environ 22 km de haut).
+
+La hauteur de l'`iframe` (`.zone__map iframe`, minimum 420 px) est calée sur ce
+cadrage : la réduire fait sortir Massy et Palaiseau du bas de la carte.
 
 Si la carte ne se charge pas (Google bloqué, visiteur hors ligne), un texte de
 repli s'affiche à sa place. À noter : cet `iframe` dépose des cookies Google —

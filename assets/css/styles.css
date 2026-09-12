@@ -511,7 +511,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: absolute; inset: 0; display: grid; place-items: center;
   padding: 2rem; text-align: center; color: var(--green-soft); font-size: .92rem;
 }
-.zone__map iframe { position: relative; display: block; width: 100%; height: clamp(320px, 38vw, 430px); border: 0; }
+/* hauteur minimale calée pour que Massy et Palaiseau restent dans le cadre au zoom 11 */
+.zone__map iframe { position: relative; display: block; width: 100%; height: clamp(420px, 38vw, 460px); border: 0; }
 
 /* ---------- Bloc WhatsApp ---------- */
 .whatsapp {
