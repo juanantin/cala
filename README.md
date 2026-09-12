@@ -25,7 +25,7 @@ assets/img/                         logos, favicons, image de repli
 | Avantages | `#avantages` | Les 6 bénéfices du batch cooking |
 | À propos de moi | `#a-propos` | Photo + qui je suis / mon expérience / pourquoi ce service |
 | Déroulement | `#deroulement` | Les 4 étapes d'une prestation |
-| Mes services | `#services` | Batch cooking à domicile, gestion des courses, cours de batch cooking |
+| Mes services | `#services` | Batch cooking à domicile, gestion des courses |
 | Crédit d'impôt | `#credit-impot` | Éligibilité aux 50 %, avec exemple de calcul |
 | Galerie | `#galerie` | 6 photos, agrandissables au clic |
 | Zone d'intervention | `#zone` | Communes desservies + carte Google Maps |
@@ -107,7 +107,7 @@ non vos tarifs réels. À vérifier et à ajuster avant publication :
 - « semaine d'essai à partir de **70 €** » — bandeau du hero, carte de service,
   liste déroulante du formulaire
 - « facture de **150 €**, vous ne réglez que **75 €** » — section crédit d'impôt
-- durées annoncées : **1 h 30 à 3 h** pour une séance, **3 h** pour un atelier
+- durée annoncée : **1 h 30 à 3 h** pour une séance
 - « liste de **30 recettes** »
 
 Les maquettes de référence annonçaient à la fois 60 € et 70 € pour la semaine
