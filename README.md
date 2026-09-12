@@ -146,11 +146,26 @@ temps que les tarifs (voir plus haut).
 
 ## Design
 
-Repris du logo : le bleu encre `#17276E`, un trait fin, beaucoup de blanc cassé
-`#FBF9F5`, aucune ombre inutile. La fleur de calla est un tracé SVG défini une
-seule fois (`<symbol id="cala-mark">` en haut de `index.html`) et réutilisée
-dans l'en-tête, la carte du hero et le pied de page — la modifier à un endroit
-la met à jour partout.
+Deux couleurs de marque, déclarées en haut de `assets/css/styles.css` :
+
+| Variable | Valeur | Usage |
+|---|---|---|
+| `--green` | `#095D40` | titres, texte, fonds sombres (crédit d'impôt, pied de page) |
+| `--accent` | `#FFD439` | boutons, surlignage du titre, badges, puces sur fond vert |
+| `--green-deep` | `#06432E` | survols verts |
+| `--accent-deep` | `#F0C220` | survols jaunes |
+| `--cream` / `--sand` | `#FCFAF4` / `#F3EFE4` | fonds de page et sections alternées |
+| `--tint` / `--tint-warm` | `#E8F0EB` / `#FFF3CF` | aplats très pâles (vert / jaune) |
+
+Le jaune est réservé à l'action : tous les boutons d'appel sont jaunes à texte
+vert, jamais l'inverse — du jaune sur blanc ou du blanc sur jaune serait
+illisible. Changer une couleur de marque se fait donc en un seul endroit.
+
+La fleur de calla est un tracé SVG défini une seule fois
+(`<symbol id="cala-mark">` en haut de `index.html`) et réutilisée dans
+l'en-tête, la carte du hero et le pied de page : la modifier à un endroit la met
+à jour partout. Elle utilise `currentColor`, donc elle prend la couleur de son
+contexte (verte sur fond clair, blanche sur fond vert).
 
 Polices : Outfit (titres) et Inter (texte), chargées depuis Google Fonts, avec
 repli sur les polices système.
@@ -158,7 +173,10 @@ repli sur les polices système.
 ## Accessibilité et technique
 
 - HTML sémantique, navigation au clavier, lien d'évitement, `aria-*` sur les
-  éléments interactifs, contrastes conformes AA.
+  éléments interactifs.
+- Contrastes vérifiés au niveau AA sur l'ensemble des couples texte/fond de la
+  palette (y compris le texte vert sur les boutons jaunes et les textes sur
+  fond vert).
 - `prefers-reduced-motion` respecté : les animations se désactivent.
 - Galerie utilisable au clavier (Tab + Entrée), fermeture par Échap.
 - Balises Open Graph, `LocalBusiness` en JSON-LD, favicon SVG.

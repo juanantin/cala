@@ -11,9 +11,9 @@
 .legal p + p { margin-top: .9rem; }
 .legal ul { display: grid; gap: .5rem; margin-top: .9rem; padding-left: 1.2rem; list-style: disc; }
 .legal ul li { padding-left: .2rem; }
-.legal a { color: var(--navy); }
+.legal a { color: var(--green); }
 .todo {
-  display: block; background: var(--mist); border-left: 2px solid var(--navy);
-  padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: .9rem; color: var(--navy);
+  display: block; background: var(--tint-warm); border-left: 2px solid var(--green);
+  padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: .9rem; color: var(--green);
 }
 .legal__back { display: inline-block; margin-top: 3rem; }
