@@ -42,12 +42,13 @@ section contact, sous la FAQ, dans le pied de page et dans le bloc
 — numéro international, sans espaces ni « + ». Il n'y a plus de lien
 `tel:` sur le site.
 
-Restent à remplacer, ce sont des valeurs d'exemple :
+Reste à remplacer, c'est une valeur d'exemple : l'e-mail
+`contact@cala-chef.fr`, présent dans `index.html`, les deux pages légales, le
+bloc `application/ld+json` et la constante `CONFIG.EMAIL` de `main.js`.
 
-- `contact@cala-chef.fr` — e-mail, dans `index.html`, les deux pages légales,
-  le bloc `application/ld+json` et la constante `CONFIG.EMAIL` de `main.js`
-- `https://www.facebook.com/` et `https://www.instagram.com/` — liens des réseaux
-  sociaux, présents dans la section contact **et** dans le pied de page
+La section contact affiche donc trois informations : WhatsApp, e-mail et zone
+d'intervention. Il n'y a volontairement ni horaires ni réseaux sociaux ; pour en
+ajouter, dupliquez un `<li>` de `.contact__info`.
 
 ### 2. La ville affichée dans le titre
 
