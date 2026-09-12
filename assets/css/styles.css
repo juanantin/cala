@@ -31,7 +31,7 @@
 
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section-y: clamp(4.5rem, 9vw, 8.5rem);
-  --header-h: 92px;
+  --header-h: 100px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -140,7 +140,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .brand { display: inline-flex; align-items: center; text-decoration: none; color: var(--green); }
-.brand__logo { display: block; height: 56px; width: auto; }
+.brand__logo { display: block; height: 68px; width: auto; }
 
 .nav { display: flex; align-items: center; gap: 2.5rem; }
 .nav__list { display: flex; align-items: center; gap: 2rem; }
@@ -589,7 +589,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 640px) {
-  :root { --header-h: 74px; }
+  :root { --header-h: 82px; }
   .cards--3, .steps { grid-template-columns: 1fr; }
   .badge-50 { width: 96px; height: 96px; }
   .form__row { grid-template-columns: 1fr; }
@@ -607,6 +607,6 @@ img.is-fallback { object-fit: cover; background: var(--tint); }
 
 /* ---------- Logo en petit écran ---------- */
 @media (max-width: 640px) {
-  .brand__logo { height: 44px; }
-  .site-footer__logo { height: 56px; }
+  .brand__logo { height: 54px; }
+  .site-footer__logo { height: 62px; }
 }

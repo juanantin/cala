@@ -201,7 +201,7 @@ rendu en blanc par un filtre CSS (`filter: brightness(0) invert(1)` sur
 `.site-footer__logo`), sans fichier supplémentaire — cela fonctionne parce que
 le PNG a un fond transparent.
 
-La hauteur de l'en-tête (`--header-h`, 92 px ; 74 px en mobile) est calée sur
+La hauteur de l'en-tête (`--header-h`, 100 px ; 82 px en mobile) est calée sur
 celle du logo : un logo de proportions très différentes demande de la revoir.
 
 Polices : Outfit (titres) et Inter (texte), chargées depuis Google Fonts, avec
