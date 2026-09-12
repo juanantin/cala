@@ -29,6 +29,9 @@
       <path d="M100 106 C 86 86, 96 60, 120 55 C 145 50, 162 68, 152 88 C 143 105, 114 116, 100 106 Z"/>
     </g>
   </symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.2-.1-1.5-.700-1.7-.8-.2-.1-.4-.1-.6.1s-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/>
+  </symbol>
 </svg>
 
 <header class="site-header" id="header">
@@ -526,11 +529,8 @@
 
       <aside class="whatsapp reveal">
         <p class="whatsapp__text">Vous avez une question ? Discutez directement avec moi sur WhatsApp.</p>
-        <!-- Remplacer le numéro par celui du chef, au format international sans espaces ni « + » -->
-        <a class="btn btn--primary" href="https://wa.me/33600000000" target="_blank" rel="noopener">
-          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.2-.1-1.5-.700-1.7-.8-.2-.1-.4-.1-.6.1s-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/>
-          </svg>
+        <a class="btn btn--primary" href="https://wa.me/33780743105" target="_blank" rel="noopener">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
           Accès WhatsApp
         </a>
       </aside>
@@ -550,8 +550,11 @@
 
         <ul class="contact__info">
           <li>
-            <span class="contact__label">Téléphone</span>
-            <a href="tel:+33600000000">06 00 00 00 00</a>
+            <span class="contact__label">WhatsApp</span>
+            <a class="contact__wa" href="https://wa.me/33780743105" target="_blank" rel="noopener">
+              <svg class="contact__wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+              +33 7 80 74 31 05
+            </a>
           </li>
           <li>
             <span class="contact__label">E-mail</span>
@@ -683,8 +686,8 @@
         <p class="site-footer__heading">Cala — chef à domicile</p>
         <ul class="site-footer__contact">
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
-            <a href="tel:+33600000000">06 00 00 00 00</a>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+            <a href="https://wa.me/33780743105" target="_blank" rel="noopener">+33 7 80 74 31 05</a>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -735,7 +738,7 @@
   "description": "Chef à domicile spécialisé en batch cooking à Paris et en banlieue sud.",
   "areaServed": ["Paris", "Hauts-de-Seine", "Val-de-Marne", "Essonne"],
   "email": "contact@cala-chef.fr",
-  "telephone": "+33600000000",
+  "telephone": "+33780743105",
   "priceRange": "€€",
   "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" }
 }

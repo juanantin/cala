@@ -34,15 +34,18 @@ assets/img/                         logo, favicon, image de repli
 
 ## À personnaliser avant la mise en ligne
 
-### 1. Les coordonnées (obligatoire)
+### 1. Les coordonnées
 
-Ce sont des valeurs d'exemple, à remplacer partout dans `index.html` (et dans les
-deux pages légales) :
+Le contact se fait par WhatsApp : **+33 7 80 74 31 05**, renseigné dans la
+section contact, sous la FAQ, dans le pied de page et dans le bloc
+`application/ld+json`. Le lien utilise le format `https://wa.me/33780743105`
+— numéro international, sans espaces ni « + ». Il n'y a plus de lien
+`tel:` sur le site.
 
-- `06 00 00 00 00` — téléphone (aussi dans `href="tel:+33600000000"`)
-- `contact@cala-chef.fr` — e-mail (aussi dans le bloc `application/ld+json` en bas de page)
-- `https://wa.me/33600000000` — lien WhatsApp sous la FAQ : numéro au format
-  international, sans espaces ni « + »
+Restent à remplacer, ce sont des valeurs d'exemple :
+
+- `contact@cala-chef.fr` — e-mail, dans `index.html`, les deux pages légales,
+  le bloc `application/ld+json` et la constante `CONFIG.EMAIL` de `main.js`
 - `https://www.facebook.com/` et `https://www.instagram.com/` — liens des réseaux
   sociaux, présents dans la section contact **et** dans le pied de page
 

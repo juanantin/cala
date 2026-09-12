@@ -375,6 +375,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .contact__label { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green-soft); font-family: var(--font-display); }
 .contact__info a { text-decoration: none; color: var(--ink); transition: color .3s ease; }
 .contact__info a:hover { color: var(--green); }
+.contact__wa { display: inline-flex; align-items: center; gap: .5rem; }
+.contact__wa-icon { width: 17px; height: 17px; flex: none; color: var(--green); }
 
 .form {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
