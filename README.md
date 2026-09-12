@@ -182,23 +182,27 @@ Vos deux fichiers d'origine sont conservés tels quels comme masters :
 
 | Fichier | Rôle |
 |---|---|
-| `cala_logo.png` | master fourni (logo complet, 1402 × 1122) |
+| `cala_logo.png` | master fourni (logo complet, 1681 × 1290) |
 | `cala_icon.png` | master fourni (marque seule, 1042 × 1042) |
 | `logo.png` | **affiché** dans l'en-tête et le pied de page |
 | `mark.png` | **affiché** dans la carte du hero (marque seule) |
 | `favicon-64.png` | favicon de l'onglet |
 | `apple-touch-icon.png` | icône d'écran d'accueil iOS (180 × 180) |
 
-Les quatre derniers sont dérivés des masters : marges transparentes recadrées
-(elles occupaient 24 à 26 % de la largeur du logo, ce qui le faisait flotter
-dans l'en-tête) puis redimensionnement — 335 Ko de PNG ramenés à 32 Ko pour
-l'affichage. **Si vous remplacez un master, régénérez les dérivés**, sinon le
-site continuera d'afficher les anciens.
+Les quatre derniers sont dérivés des masters : recadrage sur le tracé puis
+redimensionnement — 608 Ko de PNG ramenés à 29 Ko pour l'affichage.
+**Si vous remplacez un master, régénérez les dérivés**, sinon le site
+continuera d'afficher les anciens. Pensez aussi à reporter les dimensions dans
+les attributs `width`/`height` des balises `<img>`, qui réservent la place de
+l'image avant son chargement.
 
-Le tracé du logo est bleu marine (`#00166D`). Sur le fond vert du pied de page,
-il est rendu en blanc par un filtre CSS (`filter: brightness(0) invert(1)` sur
+Le tracé du logo est vert (`#02533C`). Sur le fond vert du pied de page, il est
+rendu en blanc par un filtre CSS (`filter: brightness(0) invert(1)` sur
 `.site-footer__logo`), sans fichier supplémentaire — cela fonctionne parce que
 le PNG a un fond transparent.
+
+La hauteur de l'en-tête (`--header-h`, 92 px ; 74 px en mobile) est calée sur
+celle du logo : un logo de proportions très différentes demande de la revoir.
 
 Polices : Outfit (titres) et Inter (texte), chargées depuis Google Fonts, avec
 repli sur les polices système.
