@@ -31,7 +31,7 @@
 
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section-y: clamp(4.5rem, 9vw, 8.5rem);
-  --header-h: 82px;
+  --header-h: 104px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -124,6 +124,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ---------- Header ---------- */
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 100;
+  height: var(--header-h);
   background: rgba(252, 250, 244, 0);
   transition: background .4s ease, box-shadow .4s ease, border-color .4s ease;
   border-bottom: 1px solid transparent;
@@ -135,19 +136,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 1.5rem; height: var(--header-h);
+  gap: 1.5rem; height: 100%;
 }
 
-.brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--green); }
-.brand__mark { display: block; width: 22px; color: var(--green); }
-.brand__mark svg { width: 100%; height: auto; display: block; }
-.brand__mark--light { color: #fff; width: 30px; }
-.brand__word {
-  font-family: var(--font-display);
-  font-size: 1.35rem; font-weight: 300;
-  letter-spacing: .3em; text-transform: uppercase;
-  padding-left: .1em;
-}
+.brand { display: inline-flex; align-items: center; text-decoration: none; color: var(--green); }
+.brand__logo { display: block; height: 76px; width: auto; }
 
 .nav { display: flex; align-items: center; gap: 2.5rem; }
 .nav__list { display: flex; align-items: center; gap: 2rem; }
@@ -227,8 +220,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   box-shadow: var(--shadow); font-size: .92rem; color: var(--muted);
 }
 .hero__card strong { color: var(--green); font-weight: 500; display: block; }
-.hero__card-mark { display: block; width: 17px; color: var(--green); margin-bottom: .9rem; }
-.hero__card-mark svg { width: 100%; height: auto; }
+.hero__card-mark { display: block; height: 30px; width: auto; margin-bottom: .9rem; }
 
 /* ---------- Sections ---------- */
 .section { padding-block: var(--section-y); }
@@ -414,10 +406,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-footer { background: var(--green); color: rgba(255,255,255,.72); padding-block: clamp(3rem, 6vw, 4.5rem); }
 .site-footer__inner { display: grid; gap: 2.5rem; }
 .site-footer__brand { margin-bottom: 0; }
-.site-footer__brand { display: flex; align-items: flex-start; gap: 1rem; }
-.site-footer__word {
-  font-family: var(--font-display); color: #fff; font-size: 1.3rem;
-  letter-spacing: .3em; text-transform: uppercase; margin-bottom: .5rem;
+.site-footer__brand { display: grid; gap: .9rem; justify-items: start; }
+.site-footer__logo {
+  display: block; height: 86px; width: auto;
+  filter: brightness(0) invert(1);   /* rend le tracé blanc sur le fond vert */
 }
 .site-footer__tag { font-size: .88rem; line-height: 1.6; }
 .site-footer__nav { display: grid; gap: .7rem; }
@@ -597,7 +589,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 640px) {
-  :root { --header-h: 72px; }
+  :root { --header-h: 84px; }
   .cards--3, .steps { grid-template-columns: 1fr; }
   .badge-50 { width: 96px; height: 96px; }
   .form__row { grid-template-columns: 1fr; }
@@ -612,3 +604,9 @@ img.is-fallback { object-fit: cover; background: var(--tint); }
 
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
+
+/* ---------- Logo en petit écran ---------- */
+@media (max-width: 640px) {
+  .brand__logo { height: 58px; }
+  .site-footer__logo { height: 72px; }
+}

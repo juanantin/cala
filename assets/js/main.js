@@ -16,7 +16,7 @@
      ------------------------------------------------------- */
   var CONFIG = {
     ENDPOINT: null,                      // ex. 'https://formspree.io/f/xxxxxxx'
-    EMAIL: 'contact@cala-chef.fr',
+    EMAIL: 'chef@calasociedad.com',
     VILLE: 'Paris'
   };
 
