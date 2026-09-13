@@ -21,6 +21,8 @@
   --line:        #E5E0D3;
   --white:       #FFFFFF;
 
+  --ease-out:    cubic-bezier(.22, .68, .28, 1);
+
   --radius:      2px;
   --radius-lg:   4px;
   --shadow:      0 18px 50px -28px rgba(9, 93, 64, .35);
@@ -445,12 +447,81 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .cta-float.is-visible { transform: translateY(0); }
 
-/* ---------- Reveal ---------- */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* =========================================================
+   Apparitions
+   Tout passe par opacity et transform (le compositeur s'en
+   charge, aucun recalcul de mise en page pendant l'animation).
+   Le décalage entre voisins vient de --reveal-delay, posé en JS.
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .75s ease, transform .75s var(--ease-out), clip-path .9s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; will-change: auto; }
+
+/* variantes : direction d'entrée */
+.reveal[data-reveal="left"]  { transform: translateX(-32px); }
+.reveal[data-reveal="right"] { transform: translateX(32px); }
+.reveal[data-reveal="scale"] { transform: scale(.94); }
+.reveal[data-reveal="rise"]  { transform: translateY(48px); }
+
+/* titres : balayage vers le haut, sans rogner jambages ni accents */
+.reveal[data-reveal="mask"] { opacity: 1; transform: none; }
+.reveal[data-reveal="mask"] .mask-inner {
+  display: block;
+  clip-path: inset(-.2em -.05em 100% -.05em);
+  transform: translateY(14px);
+  transition: clip-path .9s var(--ease-out), transform .9s var(--ease-out);
+  transition-delay: calc(var(--reveal-delay, 0ms) + 130ms);
+}
+.reveal[data-reveal="mask"].is-visible .mask-inner {
+  clip-path: inset(-.2em -.05em -.25em -.05em);
+  transform: none;
+}
+
+/* photos : l'image se dévoile de haut en bas pendant qu'elle se dézoome */
+.media-reveal img {
+  clip-path: inset(0 0 100% 0);
+  transform: scale(1.14);
+  transition: clip-path 1s var(--ease-out), transform 1.4s var(--ease-out), opacity .7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.media-reveal.is-visible img { clip-path: inset(0 0 0 0); transform: scale(1); }
+
+/* chargement des photos : un voile qui balaie, remplacé par l'image dès qu'elle arrive */
+.img-wrap { position: relative; overflow: hidden; background: var(--tint); }
+.img-wrap::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,.55) 50%, transparent 80%);
+  background-size: 220% 100%;
+  animation: shimmer 1.5s infinite linear;
+  opacity: 1; transition: opacity .5s ease;
+}
+.img-wrap.is-loaded::after { opacity: 0; animation: none; }
+.img-wrap img { opacity: 0; transition: opacity .7s ease; }
+.img-wrap.is-loaded img { opacity: 1; }
+@keyframes shimmer { from { background-position: 140% 0; } to { background-position: -60% 0; } }
+
+/* la carte du hero respire légèrement */
+.hero__visual.is-visible .hero__card { animation: float 7s ease-in-out 1.2s infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+/* le surlignage du titre se trace de gauche à droite */
+.u-accent::after { transform: scaleX(0); transform-origin: left center; transition: transform .7s var(--ease-out) .55s; }
+.reveal.is-visible .u-accent::after,
+.u-accent.is-visible::after { transform: scaleX(1); }
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  * { animation-duration: .001s !important; transition-duration: .001s !important; }
+  .reveal, .media-reveal, .media-reveal img, .mask-inner {
+    opacity: 1; transform: none; clip-path: none; transition: none;
+  }
+  .u-accent::after { transform: scaleX(1); transition: none; }
+  .img-wrap::after { display: none; }
+  .img-wrap img { opacity: 1; }
+  * { animation: none !important; transition-duration: .001s !important; }
 }
 
 /* ---------- Carte « discrète » de fin de grille ---------- */

@@ -215,6 +215,33 @@ repli sur les polices système.
   palette (y compris le texte vert sur les boutons jaunes et les textes sur
   fond vert).
 - `prefers-reduced-motion` respecté : les animations se désactivent.
+
+### Les animations d'apparition
+
+Chaque élément portant la classe `reveal` entre en scène quand il croise la
+fenêtre. La variante s'indique par un attribut : `data-reveal="rise"`,
+`"left"`, `"right"`, `"scale"` ou `"mask"` (balayage vers le haut, pour les
+titres). Les photos ajoutent `media-reveal` : l'image se dévoile de haut en bas
+en se dézoomant, et `img-wrap` fait défiler un voile clair tant qu'elle charge.
+Les chiffres marqués `data-count` s'incrémentent jusqu'à leur valeur.
+
+Le décalage entre voisins est calculé en JS et posé dans `--reveal-delay`, à
+partir de la **position de l'élément dans son groupe** — pas de son ordre
+d'arrivée dans l'observateur, sinon deux cartes côte à côte recevraient un
+retard différent selon le sens du défilement.
+
+Deux pièges à connaître avant de toucher à ce système :
+
+- **Ne jamais poser `clip-path` sur l'élément observé.** Réduit à zéro, il
+  n'intersecte plus la fenêtre : l'observateur ne se déclenche jamais et
+  l'élément reste invisible pour toujours. C'est pourquoi le découpage des
+  titres porte sur un `<span class="mask-inner">` inséré en JS, et celui des
+  photos sur l'`<img>`, jamais sur la figure.
+- **Le voile de chargement doit être retiré aussi sur erreur**, sinon une photo
+  manquante laisse le balayage tourner indéfiniment.
+
+Sans JavaScript, un bloc `<noscript>` rend tout visible immédiatement : les
+apparitions étant pilotées en JS, la page serait sinon entièrement vide.
 - Galerie utilisable au clavier (Tab + Entrée), fermeture par Échap.
 - Balises Open Graph, `LocalBusiness` en JSON-LD, favicon SVG.
 - Responsive de 320 px à grand écran.

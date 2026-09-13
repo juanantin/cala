@@ -73,20 +73,74 @@
     });
   }
 
-  /* ---------- Apparition au scroll ---------- */
-  var revealables = $$('.reveal');
-  if ('IntersectionObserver' in window) {
+  /* ---------- Apparitions au scroll ---------- */
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealables = $$('.reveal, .media-reveal');
+
+  // Décalage entre voisins : il se calcule sur la position de l'élément dans
+  // son groupe, pas sur l'ordre d'arrivée dans l'observateur — sinon deux
+  // cartes côte à côte reçoivent un retard différent selon le sens du scroll.
+  var groupes = [];
+  revealables.forEach(function (el) {
+    var parent = el.parentElement;
+    var g = null;
+    for (var i = 0; i < groupes.length; i++) { if (groupes[i].parent === parent) { g = groupes[i]; break; } }
+    if (!g) { g = { parent: parent, n: 0 }; groupes.push(g); }
+    el.style.setProperty('--reveal-delay', Math.min(g.n * 90, 540) + 'ms');
+    g.n++;
+  });
+
+  // Le découpage des titres porte sur un enfant, jamais sur l'élément observé :
+  // une boîte réduite à zéro n'intersecte plus la fenêtre et resterait masquée.
+  $$('[data-reveal="mask"]').forEach(function (el) {
+    var inner = document.createElement('span');
+    inner.className = 'mask-inner';
+    while (el.firstChild) { inner.appendChild(el.firstChild); }
+    el.appendChild(inner);
+  });
+
+  function reveler(el) {
+    el.classList.add('is-visible');
+    if (el.hasAttribute('data-count') || $('[data-count]', el)) { compter(el); }
+  }
+
+  if ('IntersectionObserver' in window && !REDUCED) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, i) {
+      entries.forEach(function (entry) {
         if (!entry.isIntersecting) { return; }
-        var el = entry.target;
-        setTimeout(function () { el.classList.add('is-visible'); }, Math.min(i * 70, 280));
-        io.unobserve(el);
+        reveler(entry.target);
+        io.unobserve(entry.target);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     revealables.forEach(function (el) { io.observe(el); });
   } else {
-    revealables.forEach(function (el) { el.classList.add('is-visible'); });
+    revealables.forEach(reveler);
+  }
+
+  /* ---------- Chiffres qui s'incrémentent ---------- */
+  function compter(racine) {
+    var cibles = racine.hasAttribute('data-count') ? [racine] : $$('[data-count]', racine);
+    cibles.forEach(function (el) {
+      if (el.dataset.counted) { return; }
+      el.dataset.counted = '1';
+      var fin = parseFloat(el.getAttribute('data-count'));
+      if (isNaN(fin)) { return; }
+      var avant = el.getAttribute('data-count-prefix') || '';
+      var apres = el.getAttribute('data-count-suffix') || '';
+      var rendu = function (v) { el.textContent = avant + v + apres; };
+      if (REDUCED) { rendu(fin); return; }
+
+      var duree = 1100, debut = null;
+      var delai = parseFloat(el.style.getPropertyValue('--reveal-delay')) || 0;
+      requestAnimationFrame(function anime(t) {
+        if (debut === null) { debut = t; }
+        var p = Math.min((t - debut - delai) / duree, 1);
+        if (p < 0) { requestAnimationFrame(anime); return; }
+        var eased = 1 - Math.pow(1 - p, 3);           // ralentit en fin de course
+        rendu(Math.round(eased * fin));
+        if (p < 1) { requestAnimationFrame(anime); }
+      });
+    });
   }
 
   /* ---------- FAQ : une seule réponse ouverte ---------- */
@@ -143,16 +197,28 @@
     });
   }
 
-  /* ---------- Images : repli si une photo distante ne charge pas ---------- */
+  /* ---------- Images : voile de chargement, puis repli si la photo manque ---------- */
   function markFallback(img) {
     img.classList.add('is-fallback');
     img.removeAttribute('srcset');
     img.src = 'assets/img/placeholder.svg';
   }
+
+  // Le voile est retiré aussi bien quand l'image arrive que quand elle échoue :
+  // sans ça, une photo manquante laisserait le balayage tourner indéfiniment.
+  function charge(img) {
+    var cadre = img.closest('.img-wrap');
+    if (cadre) { cadre.classList.add('is-loaded'); }
+  }
+
   $$('img').forEach(function (img) {
     if (img.dataset.noFallback !== undefined) { return; }
-    img.addEventListener('error', function () { markFallback(img); }, { once: true });
-    if (img.complete && img.naturalWidth === 0) { markFallback(img); }
+    img.addEventListener('load', function () { charge(img); });
+    img.addEventListener('error', function () { markFallback(img); charge(img); }, { once: true });
+    if (img.complete) {
+      if (img.naturalWidth === 0) { markFallback(img); }
+      charge(img);
+    }
   });
 
   /* ---------- Formulaire de contact ---------- */
