@@ -53,4 +53,10 @@ convert -size 1584x396 xc:'#095D40' /tmp/m.png -gravity East -geometry +72+0 -co
 ```
 
 La hauteur de la marque (`-resize x396`) vaut celle du bandeau : c'est ce qui la
-fait toucher le haut et le bas. La marge droite (`+72`) l'écarte du bord.
+fait toucher le haut et le bas.
+
+Le placement horizontal est donné en coordonnée absolue
+(`-gravity NorthWest -geometry +1087+0`) : la marque est **centrée sur x 1220**,
+soit 77 % de la largeur. Pour la déplacer, changez ce 1087 — c'est le bord
+gauche, la marque faisant 267 px de large à cette hauteur. Le format entreprise
+reprend la même position relative (bord gauche à 804 sur 1128).
